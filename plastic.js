@@ -1,4 +1,4 @@
-class Plane{
+class Plastic{
     constructor(){
         this.size=100;
         this.x=width;
@@ -6,7 +6,7 @@ class Plane{
         this.width = 50;
         this.height=50;
         this.vel = 0;
-        this.image=loadImage("images/plane1.png");
+        this.image=loadImage("images/bag.jpg");
     }
 
     display(){

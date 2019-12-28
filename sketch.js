@@ -1,28 +1,32 @@
 
-var witch,witch_img,witchrotate_img;
-var plane,plane_img;
-var bg,bg_img;
-var planes = [];
+var turtle,turtle_img;
+var plastic,plastic_img;
+var bg;
+var plastics = [];
 var score;
-var gameover,gameover_img;
+
 var score;
+var bg_img;
+
+
+
 
 function preload(){
  
-  witch_img = loadAnimation("images/witch1.png","images/witch2.png");
-  plane_img = loadAnimation("images/plane1.png","images/plane2.png");
-  bg_img = loadImage("images/bg0.png");
-  gameover_img=loadImage("images/gameover.png")
+ // witch_img = loadAnimation("images/witch1.png","images/witch2.png");
+ // plane_img = loadAnimation("images/plane1.png","images/plane2.png");
+  bg_img = loadImage("images/underwater.jpg");
+  
 
 }
 
 function setup() {
   createCanvas(1000,400);
-  gameover=createSprite(500,200,10,10);
-  gameover.addImage("img",gameover_img);
-  gameover.visible=false;
-witch = new Witch(50,200);
+  
+turtle = new Turtle(50,200);
 score=0;
+bg_img.x=300;
+
 
 }
 
@@ -30,8 +34,10 @@ function keyPressed(){
   
   if(keyCode===32){
     
-    witch.jump();
+    turtle.jump();
   }
+
+  
 }
 
 
@@ -41,27 +47,29 @@ function draw() {
   
   background(bg_img); 
 
+  bg_img.x = bg_img.x-5;
+
   if(World.frameCount%100===0){
-    planes.push(new Plane() )
+    plastics.push(new Plastic() )
   }
 
   score=Math.round(World.frameCount/10);
 
 
 
-  for(var p of planes){
+  for(var p of plastics){
     p.move();
     p.display();
 
-    if(witch.hits(p)){
+    if(turtle.hits(p)){
       gameover.visible=true;
       noLoop();
 
     }
   }
 
- witch.display();
- witch.fly();
+ turtle.display();
+ turtle.fly();
  
 
  drawSprites();

@@ -1,4 +1,4 @@
-class Witch{
+class Turtle{
     constructor(x,y){
         this.size=100;
         this.x=x;
@@ -7,7 +7,7 @@ class Witch{
         this.height=50;
         this.vel = 0;
         this.gravity=1;
-        this.image=loadImage("images/witch1.png");
+        this.image=loadImage("images/turtlepng.png");
     }
 
     display(){
@@ -21,7 +21,7 @@ class Witch{
        
         this.vel= -12;
     }
-hits(plane){
+hits(plastic){
     return collideRectRect(this.x,this.y,this.size,this.size,plane.x,plane.y,plane.size,plane.size)
 }
 
